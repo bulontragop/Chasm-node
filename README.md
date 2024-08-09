@@ -113,18 +113,18 @@ GROQ_API_KEY=your_Groq_API_Key
 ```bash
 ```bash
 docker run -d --restart=always --env-file ./.env2 -p 3002:3002 --name scout2 johnsonchasm/chasm-scout
-```bash
+```
 
 ```bash
 curl localhost:3002
-```bash
+```
 
 - To continue creating scouts, repeat above but now with "3", Port 3003
 
 ### Check server usage
 ```bash
 sudo docker stats scout scout2 scout3 scout4
-```bash
+```
 
 ### Node Status
 - Check your scout status here : [Visit](https://scout.chasm.net/dashboard)
