@@ -51,8 +51,8 @@ LOGGER_LEVEL=debug
 
 # Chasm
 ORCHESTRATOR_URL=https://orchestrator.chasm.net
-SCOUT_NAME=NAMASCOUTKAMU
-SCOUT_UID=DARIMINTSCOUT
+SCOUT_NAME=CHASM1
+SCOUT_UID=SCOUT1
 WEBHOOK_API_KEY=your_Webhook_API_Key
 # Scout Webhook Url, update based on your server's IP and Port
 # e.g. http://123.123.123.123:3001/
@@ -81,7 +81,51 @@ curl localhost:3001
 ```
 - Done !!
 ---
-### Node Status
 
+### Setting up multiple scouts on the same server/vps
+- Create new folder
+```bash
+mkdir chasm2
+cd chasm2
+```
+```bash
+nano .env2
+```
+```bash
+PORT=3002
+LOGGER_LEVEL=debug
+
+# Chasm
+ORCHESTRATOR_URL=https://orchestrator.chasm.net
+SCOUT_NAME=CHASM2
+SCOUT_UID=SCOUT2
+WEBHOOK_API_KEY=your_Webhook_API_Key
+# Scout Webhook Url, update based on your server's IP and Port
+# e.g. http://123.123.123.123:3002/
+WEBHOOK_URL=http://your_VPS_ip:3002/
+
+# Chosen Provider (groq, openai)
+PROVIDERS=groq
+MODEL=gemma2-9b-it
+GROQ_API_KEY=your_Groq_API_Key
+```
+- Save this file using `Ctrl + X` then `Y` and then press `Enter`
+```bash
+```bash
+docker run -d --restart=always --env-file ./.env2 -p 3002:3002 --name scout2 johnsonchasm/chasm-scout
+```bash
+
+```bash
+curl localhost:3002
+```bash
+
+- To continue creating scouts, repeat above but now with "3", Port 3003
+
+### Check server usage
+```bash
+sudo docker stats scout scout2 scout3 scout4
+```bash
+
+### Node Status
 - Check your scout status here : [Visit](https://scout.chasm.net/dashboard)
 - If you see Yellow or Green, it means your node is working properly, also your yellow dot will be turned into green dot after 1 or 2 hrs
