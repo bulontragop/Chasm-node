@@ -81,6 +81,8 @@ curl localhost:3001
 ```
 - Done !!
 ---
+---
+---
 
 ### Setting up multiple scouts on the same server/vps
 - Create new folder
