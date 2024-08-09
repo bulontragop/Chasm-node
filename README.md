@@ -111,7 +111,6 @@ GROQ_API_KEY=your_Groq_API_Key
 ```
 - Save this file using `Ctrl + X` then `Y` and then press `Enter`
 ```bash
-```bash
 docker run -d --restart=always --env-file ./.env2 -p 3002:3002 --name scout2 johnsonchasm/chasm-scout
 ```
 
